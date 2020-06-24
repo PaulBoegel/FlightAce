@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using FlightAce;
+﻿using FlightAce;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
+using NSubstitute;
 
 namespace Tests
 {
-    public class FlightMovementCalculatorTest
+    public class PlaneMotionCalculatorTests
     {
         // A Test behaves as an ordinary method
         [Test]
@@ -17,7 +15,7 @@ namespace Tests
             var oldPosition = new Vector3(1, 1, 0);
             var resolution = new Vector2(10, 10);
             var speed = 10;
-
+            
             var newPosition = movementCalculator.CalculateNewPosition(Vector3.zero, oldPosition, speed, resolution);
             Assert.AreEqual(oldPosition, newPosition);
         }
@@ -41,10 +39,10 @@ namespace Tests
             var movementCalculator = new PlaneMotionCalculator();
             var input = new Vector3(1, 1, 0);
             var oldPosition = new Vector3(10, 10, 0);
-            var resolution = new Vector2(10, 10);
+            var boundaries = new Vector2(10, 10);
             var speed = 1;
             
-            var newPosition = movementCalculator.CalculateNewPosition(input, oldPosition, speed, resolution);
+            var newPosition = movementCalculator.CalculateNewPosition(input, oldPosition, speed, boundaries);
             Assert.AreEqual(oldPosition, newPosition);
         }
     }
