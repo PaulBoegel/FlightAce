@@ -5,7 +5,11 @@ namespace FlightAce
     [RequireComponent(typeof(IActorContext))]
     public class Movement : MonoBehaviour
     {
-        [SerializeField] private float _movementSpeed;
+        [SerializeField] private float _movementSpeed = 1;
+        [SerializeField] private float _rotationSpeed = 1;
+        
+        [SerializeField] private float _maxRotationAngle = 45f;
+        
 
         private IInput _input;
         private PlaneMotionCalculator _planeMotionCalculator; 
@@ -24,7 +28,16 @@ namespace FlightAce
         {
             var inputV = _input.GetInputVector();
             var boundaries = new Vector2(5, 3);
-            transform.position = _planeMotionCalculator.CalculateNewPosition(inputV, transform.position, _movementSpeed, boundaries);
+            var trans = transform;
+            
+            transform.position = _planeMotionCalculator.CalculateNewPosition(inputV, trans.position, _movementSpeed, 
+                boundaries
+                );
+            
+            transform.rotation = _planeMotionCalculator.CalculateNewRotation(inputV, trans.rotation, trans.right, 
+                _movementSpeed,
+                _maxRotationAngle
+                );
         }
     }
 }
