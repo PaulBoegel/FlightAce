@@ -1,7 +1,6 @@
 {
-    "name": "Player",
+    "name": "Movement",
     "references": [
-        "GUID:7a8a2aeab2c4c6d41acb463748f2d3c6",
         "GUID:361c6edde95a19446a941d911efe569a"
     ],
     "includePlatforms": [],

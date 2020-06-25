@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using FlightAce;
+using FlightAce.interfaces;
+using UnityEngine;
 
 namespace FlightAce.player
 {
     public class PlayerContext : MonoBehaviour, IActorContext
     {
         
-        public IInput Input { get; private set; }
+        public IMovementInput MovementInput { get; private set; }
+        public IWeaponInput WeaponInput { get; private set; }
         private void Awake()
         {
-            Input = new PlayerInput();
+            MovementInput = new PlayerMovementInput();
+            WeaponInput = new PlayerWeaponInput();
         }
     }
 }

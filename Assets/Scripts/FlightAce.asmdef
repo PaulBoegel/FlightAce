@@ -1,3 +1,15 @@
-﻿{
-	"name": "FlightAce"
+{
+    "name": "FlightAce",
+    "references": [
+        "GUID:7a8a2aeab2c4c6d41acb463748f2d3c6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

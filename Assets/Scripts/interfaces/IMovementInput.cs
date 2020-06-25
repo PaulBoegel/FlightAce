@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace FlightAce
+namespace FlightAce.interfaces
 {
-    public interface IInput
+    public interface IMovementInput
     {
         Vector3 GetInputVector();
     }

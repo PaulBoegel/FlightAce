@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using FlightAce;
+using FlightAce.interfaces;
+using UnityEngine;
 
 namespace FlightAce.player
 {
-    public class PlayerInput : IInput
+    public class PlayerMovementInput : IMovementInput
     {
         public Vector3 GetInputVector()
         {
