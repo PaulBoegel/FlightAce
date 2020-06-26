@@ -190,8 +190,11 @@ GameObject:
   - component: {fileID: 9015619589669402134}
   - component: {fileID: 9015619589669402133}
   - component: {fileID: 9015619589669402132}
-  - component: {fileID: 9015619589669402130}
   - component: {fileID: 8375262962554201662}
+  - component: {fileID: 5594510694599988789}
+  - component: {fileID: 2578715345511767273}
+  - component: {fileID: 9015619589669402130}
+  - component: {fileID: 1064907351}
   m_Layer: 0
   m_Name: PlayerPlane
   m_TagString: Untagged
@@ -292,6 +295,43 @@ MonoBehaviour:
   _rotationSpeed: 0.5
   _shaking: 0.8
   _maxRotationAngle: 20
+--- !u!114 &8375262962554201662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015619589669402153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b6757946e9af94992044d4a24acf27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzleFlash: {fileID: 5118196161502793077}
+--- !u!114 &5594510694599988789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015619589669402153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe41163e7163f84a83803e8f4aafaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2578715345511767273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015619589669402153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &9015619589669402130
 AudioSource:
   m_ObjectHideFlags: 0
@@ -388,16 +428,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8375262962554201662
-MonoBehaviour:
+--- !u!61 &1064907351
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015619589669402153}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b6757946e9af94992044d4a24acf27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _muzzleFlash: {fileID: 5118196161502793077}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5524125, y: 0.6313305}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12, y: 6.54}
+    newSize: {x: 12, y: 6.54}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.895175, y: 3.2255278}
+  m_EdgeRadius: 0
