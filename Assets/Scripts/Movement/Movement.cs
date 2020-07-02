@@ -19,13 +19,11 @@ namespace FlightAce.movement
         
         private IMovementInput _movementInput;
         private PlaneMotionCalculator _planeMotionCalculator;
-        private Rigidbody2D rigidBody2D;
-        
+
         // Start is called before the first frame update
         void Start()
         {
             var context = GetComponent<IActorContext>();
-            rigidBody2D = context.Rigidbody2D;
             _planeMotionCalculator = new PlaneMotionCalculator();
             _movementInput = context.MovementInput;
             
@@ -41,18 +39,12 @@ namespace FlightAce.movement
             transform.position = _planeMotionCalculator.CalculateNewPosition(inputV, trans.position, _movementSpeed, 
                 boundaries, _shaking
                 );
-            rigidBody2D.MovePosition( _planeMotionCalculator.CalculateNewPosition(inputV, trans.position, _movementSpeed, 
-                boundaries, _shaking
-            )); 
+      
             transform.rotation = _planeMotionCalculator.CalculateNewRotation(inputV, trans.right, 
                 _rotationSpeed,
                 _maxRotationAngle
                 );
             
-            rigidBody2D.MoveRotation( _planeMotionCalculator.CalculateNewRotation(inputV, trans.right, 
-                _rotationSpeed,
-                _maxRotationAngle
-            ));
         }
     }
 }

@@ -6,6 +6,5 @@ namespace FlightAce.interfaces
     {
         IMovementInput MovementInput { get; }
         IWeaponInput WeaponInput { get; }
-        Rigidbody2D Rigidbody2D { get;}
     }
 }
