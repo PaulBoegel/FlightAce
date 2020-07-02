@@ -52,17 +52,16 @@ namespace FlightAce.weapon
         private void FixedUpdate()
         {
             if (_weaponInput.isFireing() && _bulletIsLoaded)
-            {
                 FireRaycast();
-            }
         }
 
         private void FireRaycast()
         {
-            var hit = Physics2D.Raycast(_muzzle.transform.position, _muzzle.transform.right);
+            var muzzleTrans = _muzzle.transform;
+            var hit = Physics2D.Raycast(muzzleTrans.position, muzzleTrans.right);
             
             if (_debugMode)
-                Debug.DrawRay(_muzzle.transform.position, _muzzle.transform.right * 100, Color.red, 1f);
+                Debug.DrawRay(muzzleTrans.position, muzzleTrans.right * 100, Color.red, 1f);
             
             if (hit.collider != null)
             {

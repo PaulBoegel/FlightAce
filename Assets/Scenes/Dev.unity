@@ -461,6 +461,11 @@ PrefabInstance:
       propertyPath: _debugMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8375262962554201662, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: _fireDelay
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8481229203308606643, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
       propertyPath: m_Name
