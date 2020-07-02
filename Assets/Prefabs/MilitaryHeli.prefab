@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3805204658684737125}
   - component: {fileID: 6625848608164670685}
   - component: {fileID: 1062075035}
+  - component: {fileID: 718317962842428166}
+  - component: {fileID: -6785658804098239521}
   m_Layer: 0
   m_Name: MilitaryHeli
   m_TagString: Untagged
@@ -97,4 +99,41 @@ MonoBehaviour:
   horizontalSpeed: 0
   verticalSpeed: 0
   amplitude: 0
-  tempPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &718317962842428166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6263636011350821756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6785658804098239521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6263636011350821756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe41163e7163f84a83803e8f4aafaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 718317962842428166}
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
