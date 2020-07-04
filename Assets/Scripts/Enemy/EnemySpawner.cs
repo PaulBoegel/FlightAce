@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using FlightAce.AI;
+using FlightAce.Enemy;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,11 +10,11 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 spawnPosition;
     public float spawnRate = 2f;
     private float nextSpawn = 0.0f;
-    
+    private GameObject enemyObject;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
     // Update is called once per frame
     void Update()
@@ -24,8 +24,9 @@ public class EnemySpawner : MonoBehaviour
             nextSpawn = Time.time + spawnRate;
             randomY = Random.Range(-3f, 3f);
             spawnPosition = new Vector3(transform.position.x, randomY, 0);
-            var enemyObject = Instantiate(enemy, spawnPosition, Quaternion.identity);
-            var enemyContext = enemyObject.GetComponent<AIContext>();
+            enemyObject = Instantiate(enemy, spawnPosition, Quaternion.identity);
+            var enemyContext = enemyObject.GetComponent<EnemyContext>();
         }
     }
+ 
 }

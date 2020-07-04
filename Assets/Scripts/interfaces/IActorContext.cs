@@ -6,5 +6,6 @@ namespace FlightAce.interfaces
     {
         IMovementInput MovementInput { get; }
         IWeaponInput WeaponInput { get; }
+        IActualRole ActualRole { get; }
     }
 }

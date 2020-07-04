@@ -18,6 +18,7 @@ namespace FlightAce.movement
         [SerializeField] private int _maxRotationAngle = 45;
         
         private IMovementInput _movementInput;
+        private IActualRole _actualRole;
         private PlaneMotionCalculator _planeMotionCalculator;
 
         // Start is called before the first frame update
@@ -26,14 +27,15 @@ namespace FlightAce.movement
             var context = GetComponent<IActorContext>();
             _planeMotionCalculator = new PlaneMotionCalculator();
             _movementInput = context.MovementInput;
-            
+            _actualRole = context.ActualRole;
+
         }
 
         // Update is called once per frame
         void Update()
         {
             var inputV = _movementInput.GetInputVector();
-            var boundaries = new Vector2(15, 5);
+            var boundaries = new Vector2(15, 3);
             var trans = transform;
             
             transform.position = _planeMotionCalculator.CalculateNewPosition(inputV, trans.position, _movementSpeed, 

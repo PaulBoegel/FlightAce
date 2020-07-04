@@ -3,6 +3,7 @@ using System.Collections;
 using FlightAce.interfaces;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace FlightAce.weapon
 {
@@ -17,6 +18,7 @@ namespace FlightAce.weapon
         
         
         private IWeaponInput _weaponInput;
+        private IActualRole _actualRole;
         private GameObject _muzzle;
         private bool _bulletIsLoaded;
 
@@ -25,7 +27,9 @@ namespace FlightAce.weapon
         {
             var context = GetComponent<IActorContext>();
             _weaponInput = context.WeaponInput;
+            _actualRole = context.ActualRole;
             _muzzle = _muzzleFlash.gameObject;
+            InvokeRepeating("EnemyShooting", Random.Range(0.1f, 1.0f), Random.Range(0.5f, 1.5f));
             StartCoroutine("LoadBullet");
         }
 
@@ -61,7 +65,7 @@ namespace FlightAce.weapon
             var hit = Physics2D.Raycast(muzzleTrans.position, muzzleTrans.right);
             
             if (_debugMode)
-                Debug.DrawRay(muzzleTrans.position, muzzleTrans.right * 100, Color.red, 1f);
+                Debug.DrawRay(muzzleTrans.position,  _actualRole.isEnemy() ? -muzzleTrans.right * 100 : muzzleTrans.right * 100, Color.red, 1f);
             
             if (hit.collider != null)
             {
@@ -77,6 +81,15 @@ namespace FlightAce.weapon
                 yield return new WaitForSeconds(_fireDelay * 0.01f);
                 _bulletIsLoaded = true;
             }
+        }
+
+        private void EnemyShooting()
+        {
+            if (_actualRole.isEnemy())
+            {
+                _weaponInput.setEnemyShooting();
+            }
+            
         }
     }
 }

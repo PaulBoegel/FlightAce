@@ -9,5 +9,10 @@ namespace FlightAce.player
         {
             return Input.GetButton("Jump");
         }
+
+        public void setEnemyShooting()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

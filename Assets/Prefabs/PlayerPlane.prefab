@@ -309,7 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b6757946e9af94992044d4a24acf27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireDelay: 1
   _muzzleFlash: {fileID: 5118196161502793077}
+  _debugMode: 0
 --- !u!114 &5594510694599988789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe41163e7163f84a83803e8f4aafaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Collied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2578715345511767273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,11 +461,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.895175, y: 3.2255278}
   m_EdgeRadius: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b6757946e9af94992044d4a24acf27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _muzzleFlash: {fileID: 5118196161502793077}
 --- !u!50 &1997369331
 Rigidbody2D:
   serializedVersion: 4
@@ -473,7 +473,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.11435135
+  m_Mass: 0.5130234
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

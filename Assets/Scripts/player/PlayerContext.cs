@@ -10,6 +10,7 @@ namespace FlightAce.player
         
         public IMovementInput MovementInput { get; private set; }
         public IWeaponInput WeaponInput { get; private set; }
+        public IActualRole ActualRole { get; private set; }
         public Rigidbody2D Rigidbody2D { get; private set; }
 
         private void Awake()
@@ -17,6 +18,8 @@ namespace FlightAce.player
             Rigidbody2D = GetComponent<Rigidbody2D>();
             MovementInput = new PlayerMovementInput();
             WeaponInput = new PlayerWeaponInput();
+            ActualRole = new PlayerActualRole();
+            
         }
 
         private void OnCollisionEnter2D(Collision2D other)
