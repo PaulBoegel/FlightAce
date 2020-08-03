@@ -1,32 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using FlightAce.Enemy;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    private float randomY;
-    private Vector3 spawnPosition;
-    public float spawnRate = 2f;
-    private float nextSpawn = 0.0f;
-    private GameObject enemyObject;
+    public float spawnRate;
+    public float reproductionSpeedChange;
+    
+    private float _randomY;
+    private float _currentYPosition = 0.0f;
+    private Vector3 _spawnPosition;
+    private float _currentSpawnPos;
+    
+    private AudioSource _audio;
+   
+    private float _currentTime;
+    private float _currentSpawnTime;
 
-    // Start is called before the first frame update
+    private GameObject _enem;
+
+
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
     }
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Time.time > nextSpawn)
+        _currentTime += Time.deltaTime;
+        _currentSpawnTime += Time.deltaTime;
+
+        if (_currentSpawnTime >= spawnRate)
         {
-            nextSpawn = Time.time + spawnRate;
-            randomY = Random.Range(-3f, 3f);
-            spawnPosition = new Vector3(transform.position.x, randomY, 0);
-            enemyObject = Instantiate(enemy, spawnPosition, Quaternion.identity);
-            var enemyContext = enemyObject.GetComponent<EnemyContext>();
+            _currentSpawnTime = 0;
+            _randomY = _currentYPosition <= 0.0f ? Random.Range(0.0f, 2.5f) : Random.Range(-2.5f, 0.0f) ;
+            _currentYPosition = _randomY;
+            _spawnPosition = new Vector3(transform.position.x, _randomY, 0);
+            _enem = Instantiate(enemy, _spawnPosition, Quaternion.identity);
+            _audio.Play();
         }
+
+        if (_currentTime >= reproductionSpeedChange && spawnRate >= 2f) 
+        {
+            spawnRate -= 0.1f;
+            _currentTime = 0;
+        }
+     
     }
  
 }

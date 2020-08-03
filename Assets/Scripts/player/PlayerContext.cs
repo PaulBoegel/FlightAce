@@ -2,12 +2,16 @@
 using FlightAce;
 using FlightAce.interfaces;
 using UnityEngine;
+using Object = System.Object;
 
 namespace FlightAce.player
 {
     public class PlayerContext : MonoBehaviour, IActorContext
     {
-        
+        private int health = 105;
+        private Sprite matDefault;
+        private SpriteRenderer sr;
+
         public IMovementInput MovementInput { get; private set; }
         public IWeaponInput WeaponInput { get; private set; }
         public IActualRole ActualRole { get; private set; }
@@ -22,14 +26,38 @@ namespace FlightAce.player
             
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void Start()
         {
-            Rigidbody2D.AddRelativeForce(Vector2.left * 100);
+            sr = GetComponent<SpriteRenderer>();
+            matDefault = sr.sprite;
+          
         }
 
-        private void OnCollisionExit2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Rigidbody2D.velocity = Vector2.zero;
+            sr.color = Color.white;
+            sr.sprite = null;
+            Destroy(collision.gameObject);
+            health--;
+            if(health <= 0)
+            {
+                DestroyPlayer();
+            }
+            else
+            {
+                Invoke("ResetMaterial", 0.1f);
+            }
         }
+
+        private void ResetMaterial()
+        {
+            sr.sprite = matDefault;
+        }
+
+        private void DestroyPlayer()
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using FlightAce.interfaces;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -10,17 +11,19 @@ namespace FlightAce.weapon
     [RequireComponent(typeof(IActorContext))]
     public class Weapon : MonoBehaviour
     {
-        
-        [Range(0, 100)]
-        [SerializeField] private float _fireDelay = 1;
+
+        [Range(0, 100)] [SerializeField] private float _fireDelay = 1;
         [SerializeField] private SpriteRenderer _muzzleFlash;
+        [SerializeField] private SpriteRenderer _bulletShoot;
         [SerializeField] private bool _debugMode = false;
-        
-        
+        public Transform tr;
+
         private IWeaponInput _weaponInput;
         private IActualRole _actualRole;
         private GameObject _muzzle;
+        private GameObject _bullet;
         private bool _bulletIsLoaded;
+        private bool _isShooting;
 
         // Start is called before the first frame update
         void Start()
@@ -29,8 +32,10 @@ namespace FlightAce.weapon
             _weaponInput = context.WeaponInput;
             _actualRole = context.ActualRole;
             _muzzle = _muzzleFlash.gameObject;
-            InvokeRepeating("EnemyShooting", Random.Range(0.1f, 1.0f), Random.Range(0.5f, 1.5f));
+            _bullet = _bulletShoot.gameObject;
+            InvokeRepeating("EnemyShooting", Random.Range(0.5f, 1.5f), Random.Range(0.3f, 0.6f));
             StartCoroutine("LoadBullet");
+            StartCoroutine("MuzzleDelay");
         }
 
         // Update is called once per frame
@@ -41,16 +46,23 @@ namespace FlightAce.weapon
                 _muzzle.SetActive(true);
                 if (_bulletIsLoaded)
                 {
-                    _muzzleFlash.enabled = true;
+                    var bullet = Instantiate(_bullet, new Vector3(_muzzle.transform.position.x, _muzzle.transform.position.y, 0), Quaternion.identity);
+                    bullet.transform.eulerAngles =  new Vector3(_muzzle.transform.eulerAngles.x , _muzzle.transform.eulerAngles.y,
+                        _actualRole.isEnemy() ? _muzzle.transform.eulerAngles.z + 90 :  _muzzle.transform.eulerAngles.z - 90);
                     _bulletIsLoaded = false;
+                }
+                if (_isShooting)
+                {
+                    _muzzleFlash.enabled = true;
+                    _isShooting = false;
                     return;
                 }
-                
                 _muzzleFlash.enabled = false;
                 return;
             }
             
             _muzzleFlash.gameObject.SetActive(false);
+          
         }
 
         private void FixedUpdate()
@@ -65,21 +77,30 @@ namespace FlightAce.weapon
             var hit = Physics2D.Raycast(muzzleTrans.position, muzzleTrans.right);
             
             if (_debugMode)
-                Debug.DrawRay(muzzleTrans.position,  _actualRole.isEnemy() ? -muzzleTrans.right * 100 : muzzleTrans.right * 100, Color.red, 1f);
-            
+                Debug.DrawRay(muzzleTrans.position,
+                    _actualRole.isEnemy() ? -muzzleTrans.right * 100 : muzzleTrans.right * 100, Color.red, 1f);
+
             if (hit.collider != null)
             {
-                if(_debugMode)
-                    Debug.Log(hit.transform.gameObject.name);
+                //if(_debugMode)
+                // Debug.Log(hit.transform.gameObject.name);
             }
         }
-        
+
         IEnumerator LoadBullet()
         {
             while (true)
             {
-                yield return new WaitForSeconds(_fireDelay * 0.01f);
+                yield return new WaitForSeconds(_fireDelay * 0.3f);
                 _bulletIsLoaded = true;
+            }
+        }
+        IEnumerator MuzzleDelay()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_fireDelay * 0.01f);
+                _isShooting = true;  
             }
         }
 
@@ -89,7 +110,6 @@ namespace FlightAce.weapon
             {
                 _weaponInput.setEnemyShooting();
             }
-            
         }
     }
 }

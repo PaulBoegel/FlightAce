@@ -5,28 +5,34 @@ namespace FlightAce.Enemy
 {
     public class EnemyMovementInput: IMovementInput
     {
-        private float horizontalSpeed;
-        private float verticalSpeed;
-        private float amplitude;
-        private bool isBasic;
+        private float _horizontalSpeed;
+        private float _verticalSpeed;
+        private float _amplitude;
+        private bool _isBasic;
+        private float _basicEnemySpeed;
+        
+        
         public EnemyMovementInput(bool basicEnemy)
         {
-            horizontalSpeed = Random.Range(-1.0f, -0.3f);
-            verticalSpeed = Random.Range(0.3f, 1.0f);
-            amplitude = Random.Range(0.1f, 1.0f);
-            isBasic = basicEnemy;
+            _horizontalSpeed = Random.Range(-1.2f, -0.4f);
+            _verticalSpeed = Random.Range(0.5f, 1.2f);
+            _amplitude = Random.Range(0.1f, 1.0f);
+            _isBasic = basicEnemy;
+            _basicEnemySpeed = Random.Range(-1.2f, -0.5f);
+
         }
         
         private EnemyMovementInput _movementInput;
         
         public Vector3 GetInputVector()
         {
-            if (!isBasic)
+            if (!_isBasic)
             {
-                var newPos = new Vector3(x: horizontalSpeed,y:  Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude,z: 0);
+                var newPos = new Vector3(x: _horizontalSpeed,y:  Mathf.Sin(Time.realtimeSinceStartup * _verticalSpeed) * _amplitude,z: 0);
                 return newPos;
             }
-            return new Vector3(Random.Range(-1.0f, -0.5f), 0, 0);
+            return new Vector3(_basicEnemySpeed, 0, 0);
         }
+
     }
 }
