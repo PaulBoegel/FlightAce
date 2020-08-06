@@ -14,11 +14,11 @@ namespace FlightAce.Enemy
         
         public EnemyMovementInput(bool basicEnemy)
         {
-            _horizontalSpeed = Random.Range(-1.2f, -0.4f);
-            _verticalSpeed = Random.Range(0.5f, 1.2f);
-            _amplitude = Random.Range(0.1f, 1.0f);
+            _horizontalSpeed = Random.Range(-2.5f, -1.2f);
+            _verticalSpeed = Random.Range(1.0f, 2.5f);
+            _amplitude = Random.Range(0.5f, 2.5f);
             _isBasic = basicEnemy;
-            _basicEnemySpeed = Random.Range(-1.2f, -0.5f);
+            _basicEnemySpeed = Random.Range(10.5f, 5.2f);
 
         }
         
