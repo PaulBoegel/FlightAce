@@ -424,6 +424,21 @@ PrefabInstance:
       propertyPath: tr
       value: 
       objectReference: {fileID: 570381314}
+    - target: {fileID: 9015619589669402132, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: _movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015619589669402132, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: _rotationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015619589669402132, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: _maxRotationAngle
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 9015619589669402134, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
       propertyPath: m_Sprite
@@ -1126,7 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3078bbab8c2c48739d15a872f003115a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6263636011350821756, guid: 76ddcc080fccee4409bd7a1ecb302a8f, type: 3}
+  enemy: {fileID: 8107654967302864094, guid: 8e0446302755ee9489246c0850b2d5c1, type: 3}
   spawnRate: 5
   reproductionSpeedChange: 20
 --- !u!4 &1346065161

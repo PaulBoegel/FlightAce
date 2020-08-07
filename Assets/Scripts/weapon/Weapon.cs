@@ -16,7 +16,7 @@ namespace FlightAce.weapon
         [SerializeField] private SpriteRenderer _muzzleFlash;
         [SerializeField] private SpriteRenderer _bulletShoot;
         [SerializeField] private bool _debugMode = false;
-        public Transform tr;
+      
 
         private IWeaponInput _weaponInput;
         private IActualRole _actualRole;
