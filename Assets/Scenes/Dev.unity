@@ -483,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 2578715345511767273, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
       propertyPath: _health
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESTART
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}

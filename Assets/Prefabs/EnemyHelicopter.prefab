@@ -195,7 +195,6 @@ GameObject:
   - component: {fileID: 3815918237470689384}
   - component: {fileID: 3584796892033932906}
   - component: {fileID: 3429160403558051301}
-  - component: {fileID: 1956387096}
   m_Layer: 0
   m_Name: EnemyHelicopter
   m_TagString: Untagged
@@ -280,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 2
+  _health: 3
   _death:
     m_PersistentCalls:
       m_Calls: []
