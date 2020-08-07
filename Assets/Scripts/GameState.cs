@@ -5,7 +5,12 @@ public class GameState : MonoBehaviour
 {
     [SerializeField] private GameObject _gameOverMenu;
     [SerializeField] private GameObject _gamePauseMenu;
+    [SerializeField] private GameUI _ui;
+    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private AudioSource _playerAudio;
 
+
+    private bool _isPaused;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -16,6 +21,9 @@ public class GameState : MonoBehaviour
 
     public void HandleGameOver()
     {
+        _playerAudio.Stop();
+        _enemySpawner.PauseAudio();
+        _ui.gameObject.SetActive(false);
         _gameOverMenu.SetActive(true);
         Time.timeScale = 0;
     }
@@ -28,12 +36,24 @@ public class GameState : MonoBehaviour
 
     public void HandleGamePause()
     {
+        if (_isPaused)
+        {
+            HandleGameResume();
+            _isPaused = false;
+            return;
+        }
+        
+        _isPaused = true;
+        _playerAudio.Pause();
+        _enemySpawner.PauseAudio();
         _gamePauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void HandleGameResume()
     {
+        _playerAudio.Play();
+        _enemySpawner.PlayAudio();
         _gamePauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }

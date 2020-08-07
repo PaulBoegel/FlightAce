@@ -55,6 +55,16 @@ public class EnemySpawner : MonoBehaviour
      
     }
 
+    public void PlayAudio()
+    {
+        _audio.Play();
+    }
+
+    public void PauseAudio()
+    {
+        _audio.Pause();
+    }
+
     public void DeleteEnemys()
     {
         _enemys.ForEach(enemy => Destroy(enemy));

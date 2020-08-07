@@ -283,6 +283,9 @@ MonoBehaviour:
   _death:
     m_PersistentCalls:
       m_Calls: []
+  _takenDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3382244365345477730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,8 +312,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Crash:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2163288339388800656}
+        m_MethodName: HandleDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ignoreTags:
   - EnemyBullet
+  explostionTags:
+  - PlayerPlane
 --- !u!114 &2420212691622014754
 MonoBehaviour:
   m_ObjectHideFlags: 0
