@@ -15,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private float _currentYPosition = 0.0f;
     private Vector3 _spawnPosition;
     private float _currentSpawnPos;
+    private List<GameObject> _enemys;
     
     private AudioSource _audio;
    
@@ -26,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        _enemys = new List<GameObject>();
         _audio = GetComponent<AudioSource>();
     }
     
@@ -41,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
             _currentYPosition = _randomY;
             _spawnPosition = new Vector3(transform.position.x, _randomY, 0);
             _enem = Instantiate(enemy, _spawnPosition, Quaternion.identity);
+            _enemys.Add(_enem);
             _audio.Play();
         }
 
@@ -50,6 +53,11 @@ public class EnemySpawner : MonoBehaviour
             _currentTime = 0;
         }
      
+    }
+
+    public void DeleteEnemys()
+    {
+        _enemys.ForEach(enemy => Destroy(enemy));
     }
  
 }

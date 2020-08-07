@@ -480,6 +480,26 @@ PrefabInstance:
       propertyPath: _death.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2578715345511767273, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: _health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: ignoreTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: ignoreTags.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: ignoreTags.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9015619589669402135, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -534,6 +554,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015619589669402135, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015619589669402135, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 9015619589669402153, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
@@ -1836,7 +1866,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 594233717}
-        m_MethodName: HandleGameResume
+        m_MethodName: HandleGameRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

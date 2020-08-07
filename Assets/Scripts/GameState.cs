@@ -5,7 +5,7 @@ public class GameState : MonoBehaviour
 {
     [SerializeField] private GameObject _gameOverMenu;
     [SerializeField] private GameObject _gamePauseMenu;
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -17,12 +17,13 @@ public class GameState : MonoBehaviour
     public void HandleGameOver()
     {
         _gameOverMenu.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
     }
     
     public void HandleGameRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void HandleGamePause()

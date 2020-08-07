@@ -15,7 +15,7 @@ public class ActorHealth : MonoBehaviour
     }
     private void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         _death.Invoke();
     }
 }
