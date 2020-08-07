@@ -24,48 +24,5 @@ namespace FlightAce.Enemy
             WeaponInput = new EnemyWeaponInput();
             ActualRole = new EnemyActualRole();
         }
-
-        private void Start()
-        {
-            sr = GetComponent<SpriteRenderer>();
-            matDefault = sr.sprite;
-          
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            
-            if(collision.CompareTag("PlayerBullet"))
-            {
-                sr.color = Color.white;
-                sr.sprite = null;
-                Destroy(collision.gameObject);
-                health--;
-                if(health <= 0)
-                {
-                    DestroyEnemy();
-                }
-                else
-                {
-                    Invoke("ResetMaterial", 0.1f);
-                }
-            }
-        }
-
-        private void ResetMaterial()
-        {
-            sr.sprite = matDefault;
-        }
-
-        private void DestroyEnemy()
-        {
-            Destroy(gameObject);
-        }
-
-        void OnBecameInvisible() {
-            Destroy(gameObject);
-        }
-
     }
- 
 }

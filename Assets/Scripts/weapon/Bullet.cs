@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         transform.position += transform.up * 10 * Time.deltaTime;
        /***if (gameObject.CompareTag("PlayerBullet"))
         {
