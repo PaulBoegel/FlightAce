@@ -13,6 +13,7 @@ public class ActorCollision : MonoBehaviour
     
     private Sprite matDefault;
     private SpriteRenderer sr;
+
     
     private void Start()
     {
