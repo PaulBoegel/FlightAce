@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
@@ -8,9 +10,9 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameUI _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private AudioSource _playerAudio;
-
-
+  
     private bool _isPaused;
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,6 +26,7 @@ public class GameState : MonoBehaviour
         _playerAudio.Stop();
         _enemySpawner.PauseAudio();
         _ui.gameObject.SetActive(false);
+        _ui.gameObject.SetActive(false); 
         _gameOverMenu.SetActive(true);
         Time.timeScale = 0;
     }

@@ -13,13 +13,15 @@ public class ActorCollision : MonoBehaviour
     
     private Sprite matDefault;
     private SpriteRenderer sr;
+   
 
     
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         matDefault = sr.sprite;
-          
+       
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +39,6 @@ public class ActorCollision : MonoBehaviour
             Crash?.Invoke();
             return;
         }
-        
         sr.color = Color.white;
         sr.sprite = null;
         Invoke("ResetMaterial", 0.1f);
