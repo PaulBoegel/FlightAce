@@ -29,6 +29,7 @@ public class ActorHealth : MonoBehaviour
     {
         _explosionAnim.enabled = true;
         Destroy(gameObject, 0.30f);
+        Debug.Log("Paul Picasso");
         _death.Invoke();
     }
 }
