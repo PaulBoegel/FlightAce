@@ -24,5 +24,10 @@ namespace FlightAce.Enemy
             WeaponInput = new EnemyWeaponInput();
             ActualRole = new EnemyActualRole();
         }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
+        }
     }
 }
