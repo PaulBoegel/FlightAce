@@ -23,12 +23,11 @@ public class ActorHealth : MonoBehaviour
     {
         _health--;
         _takenDamage.Invoke(_health, _maxHealth);
-        
         if (_health <= 0)
             HandleDeath();
 
     }
-    private void HandleDeath()
+    public void HandleDeath()
     {
         _explosionAnim.enabled = true;
         Destroy(gameObject, 0.30f);

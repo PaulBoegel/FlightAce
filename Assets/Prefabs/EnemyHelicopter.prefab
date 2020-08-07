@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 3815918237470689384}
   - component: {fileID: 3584796892033932906}
   - component: {fileID: 3429160403558051301}
+  - component: {fileID: 1956387096}
   m_Layer: 0
   m_Name: EnemyHelicopter
   m_TagString: Untagged
@@ -302,7 +303,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2163288339388800656}
-        m_MethodName: Death
+        m_MethodName: HandleDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -328,7 +329,7 @@ MonoBehaviour:
         m_CallState: 2
   ignoreTags:
   - EnemyBullet
-  explostionTags:
+  crashTags:
   - PlayerPlane
 --- !u!114 &2420212691622014754
 MonoBehaviour:

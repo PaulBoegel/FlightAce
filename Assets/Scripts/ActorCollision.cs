@@ -7,7 +7,7 @@ public class ActorCollision : MonoBehaviour
     [SerializeField] private UnityEvent Collied;
     [SerializeField] private UnityEvent Crash;
     [SerializeField] private List<string> ignoreTags;
-    [SerializeField] private List<string> explostionTags;
+    [SerializeField] private List<string> crashTags;
     
     
     
@@ -30,9 +30,9 @@ public class ActorCollision : MonoBehaviour
         if (collisionTag != null)
             return;
 
-        var explostionTag = explostionTags.Find(tag => collisionObject.CompareTag(tag));
+        var crashTag = crashTags.Find(tag => collisionObject.CompareTag(tag));
 
-        if (explostionTag != null)
+        if (crashTag != null)
         {
             Crash?.Invoke();
             return;

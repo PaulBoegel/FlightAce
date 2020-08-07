@@ -644,6 +644,16 @@ PrefabInstance:
       propertyPath: _takenDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 963913485}
+    - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: crashTags.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594510694599988789, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+        type: 3}
+      propertyPath: crashTags.Array.data[0]
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9015619589669402135, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1870,7 +1880,7 @@ MonoBehaviour:
   m_text: 'SCORE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 42df1c7856584b6b8db9a509b6b10074, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2124,6 +2134,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517467852}
   m_CullTransparentMesh: 0
+--- !u!1 &1539152691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9015619589669402153, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 545757893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1539152692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539152691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e6c102699f919440826818c0bb4bf57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &1539152694 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 9015619589669402130, guid: 1ef3e48ec17f09c42ad677ecd03a5aca,
