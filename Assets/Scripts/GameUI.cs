@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
     [SerializeField] private Slider _healthbar;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+
+    private int score = 0;
+    
 
     public void PlayerHealthChanged(int health, int maxHealth)
     {
@@ -14,5 +19,11 @@ public class GameUI : MonoBehaviour
         
 
         _healthbar.value = Mathf.Round(newHealth);
+    }
+
+    public void PlayerPointsIncreased()
+    {
+        score++;
+        _scoreText.text = score.ToString();
     }
 }

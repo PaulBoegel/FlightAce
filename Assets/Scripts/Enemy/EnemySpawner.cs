@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FlightAce.Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
     public float spawnRate;
     public float reproductionSpeedChange;
+    public UnityEvent EnemyDied;
     
     private float _randomY;
     private float _currentYPosition = 0.0f;
@@ -29,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _enemys = new List<GameObject>();
         _audio = GetComponent<AudioSource>();
+        EnemyContext.OnEnemyDied += HandleEnemyDeath;
     }
     
     void Update()
@@ -43,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
             _currentYPosition = _randomY;
             _spawnPosition = new Vector3(transform.position.x, _randomY, 0);
             _enem = Instantiate(enemy, _spawnPosition, Quaternion.identity);
+            
             _enemys.Add(_enem);
             _audio.Play();
         }
@@ -53,6 +57,11 @@ public class EnemySpawner : MonoBehaviour
             _currentTime = 0;
         }
      
+    }
+
+    public void HandleEnemyDeath()
+    {
+        EnemyDied?.Invoke();
     }
 
     public void PlayAudio()
@@ -67,6 +76,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void DeleteEnemys()
     {
+        EnemyContext.OnEnemyDied -= HandleEnemyDeath;
         _enemys.ForEach(enemy => Destroy(enemy));
     }
  
