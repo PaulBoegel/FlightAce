@@ -279,6 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 3
+  _death:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-6785658804098239521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +299,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 718317962842428166}
-        m_MethodName: Death
+        m_MethodName: HandleDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -305,6 +309,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ignoreTags:
+  - EnemyBullet
 --- !u!114 &853221403
 MonoBehaviour:
   m_ObjectHideFlags: 0
