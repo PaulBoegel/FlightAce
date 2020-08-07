@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using FlightAce.interfaces;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -38,7 +39,9 @@ public class ActorHealth : MonoBehaviour
         isDead = true;
         _explosionAnim.enabled = true;
         _soundhandler.Explode();
-        Destroy(gameObject, 1.00f);
+        var muzzle = gameObject.transform.GetChild(0).gameObject;
+        Destroy(muzzle);
+        Destroy(gameObject,1.00f);
         _death.Invoke();
     }
 }
