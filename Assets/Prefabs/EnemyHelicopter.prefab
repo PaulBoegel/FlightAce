@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 3
   _death:
     m_PersistentCalls:
       m_Calls: []
@@ -299,7 +299,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2163288339388800656}
-        m_MethodName: Death
+        m_MethodName: HandleDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
