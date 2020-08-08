@@ -40,7 +40,7 @@ namespace FlightAce.weapon
         // Update is called once per frame
         void Update()
         {
-            if (_weaponInput.isFireing())
+            if (_weaponInput.isFireing() && _muzzle)
             {
                 _muzzle.SetActive(true);
                 if (_bulletIsLoaded)
@@ -59,9 +59,10 @@ namespace FlightAce.weapon
                 _muzzleFlash.enabled = false;
                 return;
             }
+
+            if (_muzzle)
+                _muzzleFlash.gameObject.SetActive(false);
             
-            _muzzleFlash.gameObject.SetActive(false);
-          
         }
 
         private void FixedUpdate()
@@ -72,18 +73,23 @@ namespace FlightAce.weapon
 
         private void FireRaycast()
         {
-            var muzzleTrans = _muzzle.transform;
-            var hit = Physics2D.Raycast(muzzleTrans.position, muzzleTrans.right);
-            
-            if (_debugMode)
-                Debug.DrawRay(muzzleTrans.position,
-                    _actualRole.isEnemy() ? -muzzleTrans.right * 100 : muzzleTrans.right * 100, Color.red, 1f);
-
-            if (hit.collider != null)
+            if (_muzzle)
             {
-                //if(_debugMode)
-                // Debug.Log(hit.transform.gameObject.name);
+                var muzzleTrans = _muzzle.transform;
+                var hit = Physics2D.Raycast(muzzleTrans.position, muzzleTrans.right);
+            
+                if (_debugMode)
+                    Debug.DrawRay(muzzleTrans.position,
+                        _actualRole.isEnemy() ? -muzzleTrans.right * 100 : muzzleTrans.right * 100, Color.red, 1f);
+
+                if (hit.collider != null)
+                {
+                    //if(_debugMode)
+                    // Debug.Log(hit.transform.gameObject.name);
+                }
+                
             }
+         
         }
 
         IEnumerator LoadBullet()

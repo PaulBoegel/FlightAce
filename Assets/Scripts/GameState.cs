@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameUI _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private AudioSource _playerAudio;
+    [SerializeField] private GameObject _player;
   
     private bool _isPaused;
     
@@ -25,10 +26,11 @@ public class GameState : MonoBehaviour
     {
         _playerAudio.Stop();
         _enemySpawner.PauseAudio();
+        _enemySpawner.enabled = false;
         _ui.gameObject.SetActive(false);
         _ui.gameObject.SetActive(false); 
         _gameOverMenu.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0.1f;
     }
     
     public void HandleGameRestart()

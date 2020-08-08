@@ -25,8 +25,7 @@ public class EnemySpawner : MonoBehaviour
     private float _currentSpawnTime;
 
     private GameObject _enem;
-
-
+    
     void Start()
     {
         _enemys = new List<GameObject>();
@@ -46,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             _currentYPosition = _randomY;
             _spawnPosition = new Vector3(transform.position.x, _randomY, 0);
             _enem = Instantiate(enemy, _spawnPosition, Quaternion.identity);
-            
+
             _enemys.Add(_enem);
             _audio.Play();
         }
