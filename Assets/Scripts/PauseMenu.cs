@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NSubstitute.Exceptions;
 using UnityEditor;
@@ -8,7 +9,15 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
-    
+    public AudioSource backGroundMusic;
+    public AudioClip pauseMenu;
+    private AudioClip baackGroundClip;
+
+    private void Start()
+    {
+        baackGroundClip = backGroundMusic.clip;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -26,6 +35,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        backGroundMusic.clip = baackGroundClip;
+        backGroundMusic.Play();
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -33,6 +44,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        backGroundMusic.clip = pauseMenu;
+        backGroundMusic.Play();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;

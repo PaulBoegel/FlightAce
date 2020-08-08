@@ -94,7 +94,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d02365c7a3d92fc41a3778d1f89b11c4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -199,9 +199,10 @@ GameObject:
   - component: {fileID: 8230151670076122182}
   - component: {fileID: 3863390497885206559}
   - component: {fileID: 5955826491325537918}
+  - component: {fileID: 1539152692}
   m_Layer: 0
   m_Name: PlayerPlane
-  m_TagString: Untagged
+  m_TagString: PlayerPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,10 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d5dc6f6d24b5c478af04950a378e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 1
+  _movementSpeed: 3
   _rotationSpeed: 0.5
   _shaking: 0.8
-  _maxRotationAngle: 20
+  _maxRotationAngle: 45
 --- !u!114 &8375262962554201662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +413,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 07342edc584b3614ba05aa019a242e81, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -749,3 +750,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1539152692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015619589669402153}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e6c102699f919440826818c0bb4bf57, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

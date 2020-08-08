@@ -7,6 +7,8 @@ public class Background : MonoBehaviour
     public float speed;
 
     private Vector3 startPOS;
+
+    private AudioClip _backgroundMusic;
     // Start is called before the first frame update
     void Start()
     {

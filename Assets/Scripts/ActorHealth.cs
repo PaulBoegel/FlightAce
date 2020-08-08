@@ -24,6 +24,7 @@ public class ActorHealth : MonoBehaviour
     public void Start()
     {
         _explosionAnim = GetComponent<Animator>();
+        _explosionAnim.runtimeAnimatorController.animationClips[0].wrapMode = WrapMode.Once;
         _explosionAnim.enabled = false;
         _maxHealth = _health;
         _soundhandler = GetComponent<Soundhandler>();
