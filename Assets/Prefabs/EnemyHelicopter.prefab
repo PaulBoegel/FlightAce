@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96999fbe9dcfcb242bfb3f160f0fe8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 2
+  _health: 3
   _death:
     m_PersistentCalls:
       m_Calls:

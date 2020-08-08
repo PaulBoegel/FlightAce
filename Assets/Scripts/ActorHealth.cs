@@ -39,8 +39,8 @@ public class ActorHealth : MonoBehaviour
         isDead = true;
         _explosionAnim.enabled = true;
         _soundhandler.Explode();
-        var muzzle = gameObject.transform.GetChild(0).gameObject;
-        Destroy(muzzle);
+        //var muzzle = gameObject.transform.GetChild(0).gameObject;
+        //Destroy(muzzle);
         Destroy(gameObject,1.00f);
         _death.Invoke();
     }
