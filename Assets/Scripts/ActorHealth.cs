@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using FlightAce.interfaces;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,12 +18,16 @@ public class ActorHealth : MonoBehaviour
     private int _maxHealth;
     private Soundhandler _soundhandler;
 
+   
+    
+
     public void Start()
     {
         _explosionAnim = GetComponent<Animator>();
         _explosionAnim.enabled = false;
         _maxHealth = _health;
         _soundhandler = GetComponent<Soundhandler>();
+        
     }
 
     public void HandleDamage()
@@ -31,7 +36,12 @@ public class ActorHealth : MonoBehaviour
         _soundhandler.HitBullet();
         _takenDamage.Invoke(_health, _maxHealth);
         if (_health <= 0 && isDead == false)
+        {
             HandleDeath();
+        }
+            
+
+
 
     }
     public void HandleDeath()
@@ -44,4 +54,5 @@ public class ActorHealth : MonoBehaviour
         Destroy(gameObject,1.00f);
         _death.Invoke();
     }
+
 }
