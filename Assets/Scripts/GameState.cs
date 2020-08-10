@@ -11,8 +11,17 @@ public class GameState : MonoBehaviour
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private AudioSource _playerAudio;
     [SerializeField] private GameObject _player;
+    [SerializeField] private  AudioSource backGroundMusic;
+    [SerializeField] private  AudioClip pauseMenu;
+    [SerializeField] private  AudioClip backGroundClip;
+
   
     private bool _isPaused;
+    
+    private void Start()
+    {
+        backGroundClip = backGroundMusic.clip;
+    }
     
     void Update()
     {
@@ -51,12 +60,17 @@ public class GameState : MonoBehaviour
         _isPaused = true;
         _playerAudio.Pause();
         _enemySpawner.PauseAudio();
+        backGroundMusic.clip = pauseMenu;
+        backGroundMusic.Play();
         _gamePauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void HandleGameResume()
     {
+        _isPaused = false;
+        backGroundMusic.clip = backGroundClip;
+        backGroundMusic.Play();
         _playerAudio.Play();
         _enemySpawner.PlayAudio();
         _gamePauseMenu.SetActive(false);

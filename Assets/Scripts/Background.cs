@@ -19,7 +19,7 @@ public class Background : MonoBehaviour
     void Update()
     {
         transform.Translate(Time.deltaTime * speed * new Vector3(-1, 0, 0));
-        if (transform.position.x < -19.17395f)
+        if (transform.position.x < -19.29141f)
         {
             transform.position = startPOS;
         }
