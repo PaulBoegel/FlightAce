@@ -14,9 +14,9 @@ namespace FlightAce.Enemy
         
         public EnemyMovementInput(bool basicEnemy)
         {
-            _horizontalSpeed = Random.Range(-2.5f, -1.2f);
-            _verticalSpeed = Random.Range(1.0f, 2.5f);
-            _amplitude = Random.Range(0.5f, 2.5f);
+            _horizontalSpeed = Random.Range(-3.5f, -1.2f);
+            _verticalSpeed = 3.5f;//Random.Range(1.2f, 3.5f);
+            _amplitude = 2.5f;//Random.Range(1.0f, 2.8f);
             _isBasic = basicEnemy;
             _basicEnemySpeed = Random.Range(-3.5f, -1.2f);
 
