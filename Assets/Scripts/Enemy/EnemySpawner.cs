@@ -11,8 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
     public float spawnRate;
     public float reproductionSpeedChange;
-    public UnityEvent EnemyDied;
-    
+
     private float _randomY;
     private float _currentYPosition = 0.0f;
     private Vector3 _spawnPosition;
@@ -30,7 +29,6 @@ public class EnemySpawner : MonoBehaviour
     {
         _enemys = new List<GameObject>();
         _audio = GetComponent<AudioSource>();
-        EnemyContext.OnEnemyDied += HandleEnemyDeath;
     }
     
     void Update()
@@ -58,11 +56,6 @@ public class EnemySpawner : MonoBehaviour
      
     }
 
-    public void HandleEnemyDeath()
-    {
-        EnemyDied?.Invoke();
-    }
-
     public void PlayAudio()
     {
         _audio.Play();
@@ -75,8 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void DeleteEnemys()
     {
-        EnemyContext.OnEnemyDied -= HandleEnemyDeath;
         _enemys.ForEach(enemy => Destroy(enemy));
     }
- 
+    
 }

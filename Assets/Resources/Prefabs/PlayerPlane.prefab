@@ -300,6 +300,7 @@ MonoBehaviour:
   _rotationSpeed: 0.5
   _shaking: 0.8
   _maxRotationAngle: 45
+  _boundaries: {x: 5.5, y: 3}
 --- !u!114 &8375262962554201662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,8 +762,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7e6c102699f919440826818c0bb4bf57, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 2
+  m_CullingMode: 0
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

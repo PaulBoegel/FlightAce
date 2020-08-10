@@ -16,6 +16,9 @@ namespace FlightAce.movement
         
         [Range(0, 90)]
         [SerializeField] private int _maxRotationAngle = 45;
+
+        [SerializeField] private Vector2 _boundaries;
+        
         
         private IMovementInput _movementInput;
         private IActualRole _actualRole;
@@ -35,11 +38,10 @@ namespace FlightAce.movement
         void Update()
         {
             var inputV = _movementInput.GetInputVector();
-            var boundaries = new Vector2(15, 3);
             var trans = transform;
             
             transform.position = _planeMotionCalculator.CalculateNewPosition(inputV, trans.position, _movementSpeed, 
-                boundaries, _shaking
+                _boundaries, _shaking
                 );
       
             transform.rotation = _planeMotionCalculator.CalculateNewRotation(inputV, trans.right, 

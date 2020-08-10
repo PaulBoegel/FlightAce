@@ -6,7 +6,9 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private Slider _healthbar;
     [SerializeField] private TextMeshProUGUI _scoreText;
-
+    [SerializeField] private TextMeshProUGUI _gameOverScoreText;
+    
+    
     private int score = 0;
     
 
@@ -25,5 +27,6 @@ public class GameUI : MonoBehaviour
     {
         score++;
         _scoreText.text = score.ToString();
+        _gameOverScoreText.text = score.ToString();
     }
 }

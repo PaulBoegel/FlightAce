@@ -181,6 +181,7 @@ MonoBehaviour:
   _rotationSpeed: 1
   _shaking: 0
   _maxRotationAngle: 0
+  _boundaries: {x: 15, y: 3}
 --- !u!114 &4558288041159818466
 MonoBehaviour:
   m_ObjectHideFlags: 0
