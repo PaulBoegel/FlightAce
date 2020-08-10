@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using FlightAce.Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
@@ -10,10 +12,10 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameUI _ui;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private AudioSource _playerAudio;
-    [SerializeField] private GameObject _player;
     [SerializeField] private  AudioSource backGroundMusic;
     [SerializeField] private  AudioClip pauseMenu;
     [SerializeField] private  AudioClip backGroundClip;
+    [SerializeField] private UnityEvent EnemyDied;
 
   
     private bool _isPaused;
@@ -21,6 +23,7 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         backGroundClip = backGroundMusic.clip;
+        EnemyContext.OnEnemyDied += HandleEnemyDeath;
     }
     
     void Update()
@@ -80,5 +83,15 @@ public class GameState : MonoBehaviour
     public void HandleGameQuit()
     {
         Application.Quit();
+    }
+    
+    public void HandleEnemyDeath()
+    {
+        EnemyDied?.Invoke();
+    }
+    
+    public void OnDestroy()
+    {
+        EnemyContext.OnEnemyDied -= HandleEnemyDeath;
     }
 }

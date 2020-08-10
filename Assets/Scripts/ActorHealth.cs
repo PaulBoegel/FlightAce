@@ -12,7 +12,7 @@ public class ActorHealth : MonoBehaviour
     [SerializeField] private int _health = 10;
     [SerializeField] private UnityEvent _death;
     private Animator _explosionAnim;
-    private bool isDead = false;
+    private bool _isDead = false;
 
     [SerializeField] private DamageEvent _takenDamage;
     private int _maxHealth;
@@ -36,7 +36,7 @@ public class ActorHealth : MonoBehaviour
         _health--;
         _soundhandler.HitBullet();
         _takenDamage.Invoke(_health, _maxHealth);
-        if (_health <= 0 && isDead == false)
+        if (_health <= 0 && _isDead == false)
         {
             HandleDeath();
         }
@@ -47,13 +47,14 @@ public class ActorHealth : MonoBehaviour
     }
     public void HandleDeath()
     {
-        isDead = true;
+        _isDead = true;
         _explosionAnim.enabled = true;
         _soundhandler.Explode();
         var muzzle = gameObject.transform.GetChild(0).gameObject;
         Destroy(muzzle);
         Destroy(gameObject,1.00f);
         _death.Invoke();
+        
     }
 
 }
